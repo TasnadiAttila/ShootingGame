@@ -13,6 +13,9 @@ public class cannon : MonoBehaviour
     [SerializeField]
     float firePower;
 
+    [SerializeField]
+    Transform Torkolat;
+
     float timeLeft;//0 és 2 között mindig és változik, ennyi időnként nő
 
 
@@ -36,8 +39,8 @@ public class cannon : MonoBehaviour
 
 
     void Shoot(){
-        GameObject diskObject = Instantiate(disk,transform.position,Quaternion.identity);//Unity-n belül a transformos,igazodik az object szögéhez
-        diskObject.GetComponent<Rigidbody>().AddForce(transform.up* firePower,ForceMode.Impulse);//Rigidbody ilyen FIZIKA, olyan mintha meglöknénk
+        GameObject diskObject = Instantiate(disk,Torkolat.position,Quaternion.identity);//Unity-n belül a transformos,igazodik az object szögéhez
+        diskObject.GetComponent<Rigidbody>().AddForce(Torkolat.up* firePower,ForceMode.Impulse);//Rigidbody ilyen FIZIKA, olyan mintha meglöknénk
                                                                                 //ForceMode csak 1x adja hozzá az erőt nem folyomatosan mint egy ütés
         Destroy(diskObject, 5f);
     }
