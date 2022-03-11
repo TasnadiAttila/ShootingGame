@@ -3,6 +3,7 @@ using TMPro;
 
 public class Gunsystem : MonoBehaviour
 {
+    
     //Gun stats
     //public int damage;
     public float timeBetweenShooting, spread, range, reloadTime, timeBetweenShots;
@@ -20,7 +21,8 @@ public class Gunsystem : MonoBehaviour
     public LayerMask whatIsEnemy;
 
     //Graphics
-    //public GameObject muzzleFlash, bulletHoleGraphic;
+    public GameObject muzzleFlash;
+    public GameObject bulletHoleGraphic;
     //public CamShake camShake;
     //public float camShakeMagnitude, camShakeDuration;
     public TextMeshProUGUI text;
@@ -76,8 +78,8 @@ public class Gunsystem : MonoBehaviour
 
         //Graphics
         //Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
-       // Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
-
+        GameObject Del = Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        Destroy(Del, 1);
         bulletsLeft--;
         bulletsShot--;
 
