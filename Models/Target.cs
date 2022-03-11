@@ -5,24 +5,13 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     [SerializeField]
-    GameObject ParticalEffect;
+    GameObject TorottKorong;
 
     public void Take_Damage()
     {
-        
-       // GameObject effectOBJ = Instantiate(ParticalEffect,transform.position,Quaternion.identity);
-       // Destroy(effectOBJ, 1);
+        GameObject effectOBJ = Instantiate(TorottKorong,transform.position,Quaternion.identity);
+        Destroy(effectOBJ, 1);
+        UImanager.Singleton.incrementTargetsHIT();
         Destroy(gameObject);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
